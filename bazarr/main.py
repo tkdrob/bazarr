@@ -329,6 +329,8 @@ def save_wizard():
     settings.sonarr.ssl = text_type(settings_sonarr_ssl)
     settings.sonarr.apikey = text_type(settings_sonarr_apikey)
     settings.sonarr.only_monitored = text_type(settings_sonarr_only_monitored)
+    settings.sonarr.sonarr_update_interval = text_type(settings_sonarr_update_interval)
+    settings.sonarr.sonarr_timeout = text_type(settings_sonarr_timeout)
     
     settings_radarr_ip = request.forms.get('settings_radarr_ip')
     settings_radarr_port = request.forms.get('settings_radarr_port')
@@ -351,6 +353,8 @@ def save_wizard():
     settings.radarr.ssl = text_type(settings_radarr_ssl)
     settings.radarr.apikey = text_type(settings_radarr_apikey)
     settings.radarr.only_monitored = text_type(settings_radarr_only_monitored)
+    settings.radarr.radarr_update_interval = text_type(settings_radarr_update_interval)
+    settings.radarr.radarr_timeout = text_type(settings_radarr_timeout)
     
     settings_subliminal_providers = request.forms.getall('settings_subliminal_providers')
     settings.general.enabled_providers = u'' if not settings_subliminal_providers else ','.join(
@@ -1459,6 +1463,8 @@ def save_settings():
     else:
         settings_sonarr_only_monitored = 'True'
     settings_sonarr_sync = request.forms.get('settings_sonarr_sync')
+    settings_sonarr_update_interval = request.forms.get('settings_sonarr_update_interval')
+    settings_sonarr_timeout = request.forms.get('settings_sonarr_timeout')
     
     settings.sonarr.ip = text_type(settings_sonarr_ip)
     settings.sonarr.port = text_type(settings_sonarr_port)
@@ -1467,6 +1473,8 @@ def save_settings():
     settings.sonarr.apikey = text_type(settings_sonarr_apikey)
     settings.sonarr.only_monitored = text_type(settings_sonarr_only_monitored)
     settings.sonarr.full_update = text_type(settings_sonarr_sync)
+    settings.sonarr.sonarr_update_interval = text_type(settings_sonarr_update_interval)
+    settings.sonarr.sonarr_timeout = text_type(settings_sonarr_timeout)
     
     settings_radarr_ip = request.forms.get('settings_radarr_ip')
     settings_radarr_port = request.forms.get('settings_radarr_port')
@@ -1483,6 +1491,8 @@ def save_settings():
     else:
         settings_radarr_only_monitored = 'True'
     settings_radarr_sync = request.forms.get('settings_radarr_sync')
+    settings_radarr_update_interval = request.forms.get('settings_radarr_update_interval')
+    settings_radarr_timeout = request.forms.get('settings_radarr_timeout')
     
     settings.radarr.ip = text_type(settings_radarr_ip)
     settings.radarr.port = text_type(settings_radarr_port)
@@ -1491,6 +1501,8 @@ def save_settings():
     settings.radarr.apikey = text_type(settings_radarr_apikey)
     settings.radarr.only_monitored = text_type(settings_radarr_only_monitored)
     settings.radarr.full_update = text_type(settings_radarr_sync)
+    settings.radarr.radarr_update_interval = text_type(settings_radarr_update_interval)
+    settings.radarr.radarr_timeout = text_type(settings_radarr_timeout)
     
     settings_subliminal_providers = request.forms.getall('settings_subliminal_providers')
     settings.general.enabled_providers = u'' if not settings_subliminal_providers else ','.join(

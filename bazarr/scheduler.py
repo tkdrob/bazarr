@@ -104,13 +104,13 @@ def schedule_update_job():
 
 
 if settings.general.getboolean('use_sonarr'):
-    scheduler.add_job(update_series, IntervalTrigger(minutes=1), max_instances=1, coalesce=True, misfire_grace_time=15,
+    scheduler.add_job(update_series, IntervalTrigger(minutes=int(settings.sonarr.sonarr_update_interval)), max_instances=1, coalesce=True, misfire_grace_time=15,
                       id='update_series', name='Update series list from Sonarr')
-    scheduler.add_job(sync_episodes, IntervalTrigger(minutes=5), max_instances=1, coalesce=True, misfire_grace_time=15,
+    scheduler.add_job(sync_episodes, IntervalTrigger(minutes=int(settings.sonarr.sonarr_update_interval)), max_instances=1, coalesce=True, misfire_grace_time=15,
                       id='sync_episodes', name='Sync episodes with Sonarr')
 
 if settings.general.getboolean('use_radarr'):
-    scheduler.add_job(update_movies, IntervalTrigger(minutes=5), max_instances=1, coalesce=True, misfire_grace_time=15,
+    scheduler.add_job(update_movies, IntervalTrigger(minutes=int(settings.radarr.radarr_update_interval)), max_instances=1, coalesce=True, misfire_grace_time=15,
                       id='update_movies', name='Update movies list from Radarr')
 
 if settings.general.getboolean('use_sonarr') or settings.general.getboolean('use_radarr'):

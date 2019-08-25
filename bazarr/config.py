@@ -63,6 +63,8 @@ defaults = {
         'apikey': '',
         'full_update': 'Daily',
         'only_monitored': 'False',
+	    'sonarr_timeout': '60',
+	    'sonarr_update_interval': '5',
 },
     'radarr': {
         'ip': '127.0.0.1',
@@ -72,6 +74,8 @@ defaults = {
         'apikey': '',
         'full_update': 'Daily',
         'only_monitored': 'False',
+	    'radarr_timeout': '60',
+	    'radarr_update_interval': '5',
 },
     'proxy': {
         'type': 'None',

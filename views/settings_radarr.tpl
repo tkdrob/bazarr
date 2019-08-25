@@ -137,6 +137,26 @@
                                     </select>
                                 </div>
                             </div>
+							<div class="right aligned four wide column">
+                                <label>Update Interval</label>
+                            </div>
+                            <div class="two wide column">
+								<div class='field'>
+									<div class="ui input">
+										<input name="settings_radarr_update_interval" type="number" min="5" max="1000000" step="1" onkeydown="return false" value="{{settings.radarr.radarr_update_interval}}">
+									</div>
+								</div>
+                            </div>
+							<div class="right aligned four wide column">
+                                <label>Update Timeout</label>
+                            </div>
+                            <div class="two wide column">
+								<div class='field'>
+									<div class="ui input">
+										<input name="settings_radarr_timeout" type="number" min="15" max="1000000" step="15" onkeydown="return false" value="{{settings.radarr.radarr_timeout}}">
+									</div>
+								</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -156,6 +176,13 @@
 
                     $('#settings_radarr_sync').dropdown('clear');
                     $('#settings_radarr_sync').dropdown('set selected','{{!settings.radarr.full_update}}');
+					
+                    $('#settings_radarr_update_interval').dropdown('clear');
+                    $('#settings_radarr_update_interval').dropdown('set selected','{{!settings.radarr.radarr_update_interval}}');
+
+                    $('#settings_radarr_timeout').dropdown('clear');
+                    $('#settings_radarr_timeout').dropdown('set selected','{{!settings.radarr.radarr_timeout}}');
+
 
                     $('#radarr_validate').on('click', function() {
                         if ($('#radarr_ssl_div').checkbox('is checked')) {
